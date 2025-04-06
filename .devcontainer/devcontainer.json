@@ -11,7 +11,14 @@
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   // Port 5683 udp is used by Shelly integration
-  "appPort": ["8123:8123", "5683:5683/udp"],
+  "appPort": [
+    "8123:8123",
+    "5683:5683/udp",
+    "20002:20002/udp",
+    "20003:20003/udp",
+    "10002:10002/udp",
+    "10003:10003/udp"
+  ],
   "runArgs": [
     "-e",
     "GIT_EDITOR=code --wait",
@@ -67,5 +74,8 @@
         ]
       }
     }
-  }
+  },
+  "mounts": [
+    "source=//d/GitHub/my_cards/,target=/workspaces/ha-core/config/www/my_cards,type=bind,consistency=cached"
+  ]
 }
